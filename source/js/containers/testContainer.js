@@ -1,19 +1,23 @@
-﻿import { connect } from 'react-redux'
+﻿import { connect } from 'react-redux';
 
-import { constants } from '../constants/actionTypes.js'
-import TestComponent from '../components/testComponent.js'
+import { constants } from '../constants/actionTypes.js';
+import CatSearch from '../components/testComponent.js';
+import { fetchAllMij} from '../actions/fetchAll.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        handleImageClick() {
+            dispatch(fetchAllMij())
+        }}
 }
 
-const TestContainer = connect(
+const CatSearchContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(TestComponent)
+)(CatSearch)
 
-export default TestContainer
+export default CatSearchContainer

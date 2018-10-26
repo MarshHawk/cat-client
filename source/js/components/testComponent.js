@@ -1,9 +1,19 @@
 ﻿import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-let TestComponent = () => (
+let CatSearch = ({ handleImageClick }) => (
+    <div id="fh5co-main">
         <div className="container">
-            <h1>Test Hello Wolf!</h1>
+            <div>
+                <div>
+                    <div>
+                        <img src="images/index.jpg" alt="Cat Search" onClick={() => handleImageClick()} />
+                        <div>Cat Search</div>
+                   </div>
+                </div>
+            </div>
         </div>
+    </div>
 )
 
-export default TestComponent
+export default CatSearch

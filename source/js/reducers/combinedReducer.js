@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import { testReducer } from './testReducer.js';
+import { mijResultPage } from './mijResultPageReducer.js';
+import { isFetchingMij } from './isFetchingMijReducer.js';
 
 const combinedReducer = combineReducers({
-    testReducer
+    mijResultPage,
+    isFetchingMij
 })
 
 export default combinedReducer
