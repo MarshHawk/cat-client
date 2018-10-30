@@ -64,10 +64,15 @@ gulp.task('jpg', function () {
     gulp.src(app + '/images/*.jpg');
 });
 
+gulp.task('png', function () {
+    gulp.src(app + '/images/*.png');
+});
+
 gulp.task('watch', function () {
     gulp.watch(src + '/js/**/*.js', ['js']);
     gulp.watch(app + '/css/**/*.css', ['css']);
     gulp.watch(app + '/images/**/*.jpg', ['jpg']);
+    gulp.watch(app + '/images/**/*.png', ['png']);
     gulp.watch([app + '/**/*.html'], ['html']);
 });
 
