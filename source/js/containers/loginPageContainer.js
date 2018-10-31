@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
 
 import LoginPage from '../components/loginPage.js';
-//import { fetchAllMij} from '../actions/fetchAll.js';
+import { loginUser } from '../actions/login.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        loginWithAuth(creds) {
+            dispatch(loginUser(creds))
+        }
+    }
 }
 
 const LoginPageContainer = connect(
@@ -16,4 +20,4 @@ const LoginPageContainer = connect(
     mapDispatchToProps
 )(LoginPage)
 
-export default LoginPage
+export default LoginPageContainer;

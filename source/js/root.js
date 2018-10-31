@@ -8,7 +8,6 @@ const Root = ({isAuthenticated}) => {
     return (isAuthenticated ? <CatSearchContainer /> : <LoginPageContainer />);
 }
 
-
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.isAuthenticated
