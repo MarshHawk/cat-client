@@ -4,14 +4,15 @@ const LoginPage = () => {
     return ( <section id="header">
     <header>
         <h1>Cat Suite</h1>
-        <p>An Academic Library Information Organization Web Application</p>
+        <h3>An Information Organization</h3>
+        <h3>Web Application</h3>
     </header>    
-    <div class="col-12">
-		<ul class="actions">
+    <div className="col-12">
+		<ul className="actions">
 			<li><input className="text button style2 scrolly-middle" placeholder="Username"/></li>
             <li><input className="text button style2 scrolly-middle" placeholder="Password" /></li>
 		</ul>
-        <ul class="actions">
+        <ul className="actions">
 			<li><a className="button style2 scrolly-middle">Login</a></li>
 		</ul>
 	</div>
