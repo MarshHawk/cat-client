@@ -1,3 +1,7 @@
+import axios from 'axios';
+
+import { constants } from '../constants/actionTypes.js';
+
 export const loginInitiated = auth => ({
     type: constants.LOGIN_INITIATED,
     payload: {isFetching: true,
@@ -28,14 +32,19 @@ export function loginUser(creds) {
     let post = { 
         method: 'POST',
         url: 'http://localhost:8080/login',
-        headers: { 'Content-Type':'application/x-www-form-urlencoded' }, 
+        headers: { 'Content-Type':'application/x-www-form-urlencoded' },
         data: { user: 'admin', password:'admin'}
     }
   
     return dispatch => {
       dispatch(loginInitiated(creds))
   
-      return axios.post(post)
+        return axios({
+            method: 'POST',
+            url: 'http://localhost:8080/login',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            data: { user: 'admin', password: 'admin' }
+        })
         .then(res =>
           res.json().then(user => ({ user, res}))
               ).then(({ user, response }) =>  {

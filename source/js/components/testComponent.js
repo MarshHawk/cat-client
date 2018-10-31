@@ -16,4 +16,4 @@ let CatSearch = ({ handleImageClick }) => (
     </div>
 )
 
-export default CatSearch
+export default CatSearch;
