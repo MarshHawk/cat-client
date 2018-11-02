@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import combinedReducer from './reducers/combinedReducer';
-import CatSearchContainer from './containers/catSearchContainer';
 import TestRoutable from './components/testRoutable';
 import Root from './root';
 
@@ -27,7 +26,5 @@ render(
     </Provider>,
     document.getElementById('app')
 )
-
 //let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, api)(createStore)
-
 //let store = createStoreWithMiddleware(quotesApp)

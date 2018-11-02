@@ -1,4 +1,4 @@
-﻿import { constants } from '../constants/actionTypes.js'
+﻿import { constants } from '../constants/actionTypes.js';
 
 export const mijResultPage = (state = {}, action) => {
     switch (action.type) {

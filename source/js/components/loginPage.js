@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-const LoginPage = ({ loginWithAuth }) => {
+const LoginPage = ({ username, password, loginWithAuth, changeUsername, changePassword }) => {
     return (<section id="header">
     <header>
         <h1>Cat Suite</h1>
@@ -10,14 +10,16 @@ const LoginPage = ({ loginWithAuth }) => {
     <div className="col-12">
         <ul className="actions">
             <li>
-                <input type='text' className="text button style2 scrolly-middle" placeholder="Username" />
+                <input type='text' value={username} className="text button style2 scrolly-middle" 
+                onChange={(event) => changeUsername(event.target.value)} />
             </li>
             <li>
-                <input type='password' className="text button style2 scrolly-middle" placeholder="Password" />
+                <input type='password' value={password} className="text button style2 scrolly-middle" 
+                onChange={(event) => changePassword(event.target.value)} />
             </li>
 		</ul>
         <ul className="actions">
-            <li onClick={(event) => loginWithAuth({})}>
+            <li onClick={() => loginWithAuth(username, password)}>
                 <a className="button style2 scrolly-middle">Login</a>
             </li>
 		</ul>

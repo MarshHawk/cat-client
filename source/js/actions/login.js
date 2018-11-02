@@ -2,20 +2,20 @@ import axios from 'axios';
 
 import { constants } from '../constants/actionTypes.js';
 
-export const loginInitiated = auth => ({
+export const loginInitiated = (username) => ({
     type: constants.LOGIN_INITIATED,
     payload: {isFetching: true,
     isAuthenticated: false,
-    auth: auth,
-    idToken: undefined,
-    errorMessage: undefined}
+    hasLoginError: false,
+    errorMessage: undefined,
+    creds:username}
 })
 
-export const loginFulfilled = token => ({
+export const loginFulfilled = () => ({
     type: constants.LOGIN_FULFILLED,
     payload: {isFetching: false,
     isAuthenticated: true,
-    idToken: token,
+    hasLoginError: false,
     errorMessage: undefined}
 })
 
@@ -23,43 +23,34 @@ export const loginError = message => ({
     type: constants.LOGIN_ERROR,
     payload: {isFetching: false,
     isAuthenticated: false,
-    idToken: undefined,
+    hasLoginError: true,
     errorMessage: message}
 })
 
-export function loginUser(creds) {
-
-    let post = { 
-        method: 'POST',
-        url: 'http://localhost:8080/login',
-        headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-        data: { user: 'admin', password:'admin'}
-    }
-  
+export function loginUser(username, password) {  
     return dispatch => {
-      dispatch(loginInitiated(creds))
-  
+      dispatch(loginInitiated(username)) 
         return axios({
             method: 'POST',
             url: 'http://localhost:8080/login',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            data: { user: 'admin', password: 'admin' }
+            data: { username: username, password: password }
         })
-        .then(res =>
-          res.json().then(user => ({ user, res}))
-              ).then(({ user, response }) =>  {
-          if (!res.ok) {
-            // If there was a problem, we want to
-            // dispatch the error condition
-            dispatch(loginError(user.message))
-            return Promise.reject(user)
-          } else {
-            // If login was successful, set the token in local storage
-            localStorage.setItem('id_token', user.idToken)
-            localStorage.setItem('id_token', user.accessToken)
-            // Dispatch the success action
-            dispatch(loginFulfilled(user.idToken + user.accessToken))
+        .then(res => {
+          if (res.status === 200) {
+            sessionStorage.setItem('jwt', res.headers.authorization)
+            dispatch(loginFulfilled())
           }
-        }).catch(err => console.log("Error: ", err))
+        }).catch(err => dispatch(loginError()))
     }
   }
+
+export const usernameChanged = username => ({
+    type: constants.USERNAME_CHANGED,
+    payload: username
+})
+
+export const passwordChanged = password => ({
+    type: constants.PASSWORD_CHANGED,
+    payload: password
+})

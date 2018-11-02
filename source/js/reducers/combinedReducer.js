@@ -9,4 +9,4 @@ const combinedReducer = combineReducers({
     isFetchingMij
 })
 
-export default combinedReducer
+export default combinedReducer;
