@@ -10,6 +10,7 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.3.1",
+    "react-table": "^6.8.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
@@ -21,6 +22,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^14.5.0",
+    "browserify-css": "^0.14.0",
     "chai": "^4.1.2",
     "envify": "^4.1.0",
     "enzyme": "^3.2.0",

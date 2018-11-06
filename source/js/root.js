@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CatSearchContainer from './containers/catSearchContainer.js';
+import CatHub from './catHub';
 import LoginPageContainer from './containers/loginPageContainer.js';
 
 const Root = ({isAuthenticated}) => {
-    return (isAuthenticated ? <CatSearchContainer /> : <LoginPageContainer />);
+    return (isAuthenticated ? <CatHub/> : <LoginPageContainer />);
 }
 
 const mapStateToProps = (state) => {

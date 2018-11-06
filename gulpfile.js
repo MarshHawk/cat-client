@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     minimist = require('minimist'),
     buffer = require('gulp-buffer'),
     uglify = require('gulp-uglify'),
+    browserifyCss = require('browserify-css'),
     gutil = require('gulp-util');
 
 var src = './source',
@@ -24,6 +25,8 @@ gulp.task('js', function () {
     return browserify(src + '/js/app.js', { debug: true })
         .on('error', handleError)
         .transform(babelify, { presets: ["env", "react", "stage-0"] })
+        .on('error', handleError)
+        .transform(browserifyCss)
         .on('error', handleError)
         .bundle()
         .on('error', handleError)
@@ -43,6 +46,8 @@ gulp.task('deploy', function () {
         .transform(envify)
         .on('error', handleError)
         .transform(uglifyify)
+        .on('error', handleError)
+        .transform(browserifyCss)
         .on('error', handleError)
         .bundle()
         .on('error', handleError)
@@ -69,7 +74,7 @@ gulp.task('png', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(src + '/js/**/*.js', ['js']);
+    gulp.watch(src + '/js/**/**/*.js', ['js']);
     gulp.watch(app + '/css/**/*.css', ['css']);
     gulp.watch(app + '/images/**/*.jpg', ['jpg']);
     gulp.watch(app + '/images/**/*.png', ['png']);

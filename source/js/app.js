@@ -10,6 +10,7 @@ import TestRoutable from './components/testRoutable';
 import Root from './root';
 
 const loggerMiddleware = createLogger();
+
 let store = createStore(combinedReducer, applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
@@ -26,5 +27,6 @@ render(
     </Provider>,
     document.getElementById('app')
 )
+
 //let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, api)(createStore)
 //let store = createStoreWithMiddleware(quotesApp)

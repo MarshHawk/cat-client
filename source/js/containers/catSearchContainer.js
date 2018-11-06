@@ -1,8 +1,7 @@
 ﻿import { connect } from 'react-redux';
 
-import { constants } from '../constants/actionTypes.js';
-import CatSearch from '../components/testComponent.js';
-import { fetchAllMij } from '../actions/fetchAll.js';
+import CatSearch from '../components/catSearch.js';
+import { fetchAllMij} from '../actions/fetchAll.js';
 
 const mapStateToProps = (state, ownProps) => {
     return {}
@@ -21,4 +20,4 @@ const CatSearchContainer = connect(
     mapDispatchToProps
 )(CatSearch)
 
-export default CatSearchContainer;
+export default CatSearchContainer
