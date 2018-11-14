@@ -15,7 +15,10 @@ const mapStateToProps = (state, ownProps) => {
         Header: 'LC',
         //accessor: d => d.friend.name // Custom value accessors!
       }]
-    return {}
+    return {
+        data
+
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
