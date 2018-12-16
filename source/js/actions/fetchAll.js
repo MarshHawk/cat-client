@@ -16,11 +16,11 @@ export const fetchAllMijRejected = error => ({
 export const fetchAllMij = () => {
     return (dispatch) => {
         dispatch(fetchAllMijInitiated())
-    return axios({method:'get', url:'http://localhost:8080/bibrecords/mij/v1', 
+    return axios({method:'get', url:'http://ec2-52-91-70-125.compute-1.amazonaws.com:3534/bibrecords/mij/v1', 
         headers: {'Authorization':sessionStorage.getItem("jwt")}
     })
         .then(res => dispatch(fetchAllMijFulfilled(res.data)))
         .catch(err => dispatch(fetchAllMijRejected(err)));
-}
+    }
 }
 

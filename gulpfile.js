@@ -91,3 +91,5 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('default', ['watch', 'html', 'js', 'css', 'jpg', 'webserver']);
+
+gulp.task('build', ['html', 'js', 'css', 'jpg']);

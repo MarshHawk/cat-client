@@ -28,5 +28,6 @@ render(
     document.getElementById('app')
 )
 
+//implement this pattern the next time you touch this file
 //let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, api)(createStore)
 //let store = createStoreWithMiddleware(quotesApp)

@@ -32,7 +32,7 @@ export function loginUser(username, password) {
       dispatch(loginInitiated(username)) 
         return axios({
             method: 'POST',
-            url: 'http://localhost:8080/login',
+            url: 'http://ec2-52-91-70-125.compute-1.amazonaws.com:3534/login',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: { username: username, password: password }
         })
