@@ -4,4 +4,6 @@ RUN apt-get clean && npm install -g gulp
 
 COPY . .
 
-RUN "gulp.sh build"
+RUN npm install
+
+RUN "gulp build"
