@@ -1,9 +1,7 @@
-FROM node:6.15.1
-
-RUN apt-get clean && npm install -g gulp
+FROM node:6.15.1 
 
 COPY . .
 
-RUN npm install
+RUN apt-get clean && npm install && npm install -g gulp
 
-RUN "gulp build"
+CMD ["gulp", "build"]
