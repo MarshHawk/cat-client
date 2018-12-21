@@ -1,7 +1,19 @@
-FROM nginx:1.13.12-alpine
+FROM alpine:edge
+#based on xueshanf/awscli
 
-ADD builds/app /usr/share/nginx/html
+ADD builds/app /app
 
-EXPOSE 80
+RUN apk --no-cache add \ 
+ bash \
+curl \
+less \
+groff \
+jq \
+git \
+python \
+py-pip \
+py2-pip && \
+pip install --upgrade pip awscli s3cmd && \
+mkdir /root/.aws
 
-CMD ["nginx", "-g", "daemon off;"]
+VOLUME /app
