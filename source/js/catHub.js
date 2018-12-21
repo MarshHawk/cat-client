@@ -10,6 +10,5 @@ const CatHub = () => {
             <CatSearchResultContainer />
         </div>);
 }
- 
 
 export default CatHub;
