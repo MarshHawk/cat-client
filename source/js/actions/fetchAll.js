@@ -13,6 +13,10 @@ export const fetchAllMijRejected = error => ({
     type: constants.FETCH_ALL_REJECTED, payload: error,
 })
 
+export const showSearchResults = () => ({
+    type: constants.SHOW_SEARCH_RESULTS,
+})
+
 export const fetchAllMij = () => {
     return (dispatch) => {
         dispatch(fetchAllMijInitiated())
@@ -20,6 +24,7 @@ export const fetchAllMij = () => {
         headers: {'Authorization':sessionStorage.getItem("jwt")}
     })
         .then(res => dispatch(fetchAllMijFulfilled(res.data)))
+        .then(n => dispatch(showSearchResults()))
         .catch(err => dispatch(fetchAllMijRejected(err)));
     }
 }

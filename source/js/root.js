@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CatSearchContainer from './containers/catSearchContainer.js';
 import CatHub from './catHub';
 import LoginPageContainer from './containers/loginPageContainer.js';
 
